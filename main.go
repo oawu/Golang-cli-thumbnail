@@ -8,27 +8,30 @@
 package main
 
 import (
-  "os"
-  "oago/lib"
-  "oago/thumbnail"
-  "oago/iosAppIcon"
+	"oago/iosAppIcon"
+	"oago/lib"
+	"oago/thumbnail"
+	"os"
 )
 
 func main() {
-  args := os.Args[1:]
-  
-  if len(args) == 0 { // 沒有指令
-    lib.ShowHelp()
-    return
-  }
+	args := os.Args[1:]
 
-  // 取出指令與餐數
-  command   := args[0]
-  arguments := args[1:]
+	if len(args) == 0 { // 沒有指令
+		lib.ShowHelp()
+		return
+	}
 
-  switch command {
-    case "thumbnail": thumbnail.Run(arguments)
-    case "ios-app-icon": iosAppIcon.Run(arguments)
-    default: lib.ShowHelp()
-  }
+	// 取出指令與餐數
+	command := args[0]
+	arguments := args[1:]
+
+	switch command {
+	case "thumbnail":
+		thumbnail.Run(arguments)
+	case "ios-app-icon":
+		iosAppIcon.Run(arguments)
+	default:
+		lib.ShowHelp()
+	}
 }
